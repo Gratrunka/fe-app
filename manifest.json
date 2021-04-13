@@ -6,6 +6,7 @@
     "versionCode" : "100",
     "transformPx" : false,
     /* 5+App特有相关 */
+	
     "app-plus" : {
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
@@ -72,7 +73,20 @@
     "mp-toutiao" : {
         "usingComponents" : true
     },
-    "uniStatistics": {  
-        "enable": false
+    "uniStatistics" : {
+        "enable" : false
+    },
+    "h5" : {
+        "devServer" : {
+             "port" : 8000, //端口号
+              "disableHostCheck" : true,
+              "proxy" : {
+                  "/" : {
+                      "target" : "http://localhost:3000", //目标接口域名
+                       "changeOrigin" : true,  //是否跨域
+                       "secure" : false  // 设置支持https协议的代理
+                 }
+            }
+        }
     }
 }
