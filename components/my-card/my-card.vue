@@ -60,13 +60,14 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		padding: 10px 20px;
+		padding: 5px 20px;
 		width: 100%;
 		height: 120px;
-		border-radius: 30px;
-		background: #e6eef4;
-		box-shadow:  20px 20px 60px #c4cacf,
-		             -20px -20px 60px #ffffff;
+		border-radius: 10px;
+		// background: #e6eef4;
+		// box-shadow:  20px 20px 60px #c4cacf,
+		//              -20px -20px 60px #ffffff;
+		border: 1px solid #f1f1f1;
 		.left{
 			display: flex;
 			flex-direction: column;

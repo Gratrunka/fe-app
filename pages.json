@@ -4,6 +4,17 @@
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 	{
+		"path": "pages/tabBar/community/index",
+		"navigationBarTitleText": "论坛"
+	},
+	{
+		"path": "pages/page/detail",
+		"style": {
+			"navigationBarTitleText": ""
+			
+		}
+	},
+	{
 		"path": "pages/login/index",
 		"style": {
 			"navigationBarTitleText": "",
@@ -20,6 +31,12 @@
 			}
 		},
 		{
+			"path":"pages/tabBar/game/index",
+			"style": {
+				"navigationBarTitleText": "game"
+			}
+		},
+		{
 			"path": "pages/tabBar/user/user",
 			"style": {
 				"navigationBarTitleText": "",
@@ -28,17 +45,9 @@
 					"titleNView":false
 				}
 			}
-		},
-		{
-			"path": "pages/page/detail",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationStyle":"custom",
-				"app-plus":{
-					"titleNView":false
-				}
-			}
 		}
+		
+		
 		
 	],
 "tabBar": {
@@ -51,15 +60,29 @@
 				"pagePath": "pages/tabBar/home/home",
 				"iconPath": "static/tabbar/home.png",
 				"selectedIconPath": "static/tabbar/home.png",
-				"text": "home"
+				"text": "主页"
+			},
+			{
+				"pagePath":"pages/tabBar/community/index",
+				"iconPath": "static/tabbar/com.png",
+				"selectedIconPath": "static/tabbar/com.png",
+				"text": "社区"
+			},
+			{
+				"pagePath": "pages/tabBar/game/index",
+				"iconPath": "static/tabbar/game.png",
+				"selectedIconPath": "static/tabbar/game.png",
+				"text": "游戏"
+				
 			},
 			{
 				"pagePath": "pages/tabBar/user/user",
 				"iconPath": "static/tabbar/user.png",
 				"selectedIconPath": "static/tabbar/user.png",
-				"text": "user"
+				"text": "我的"
 				
 			}
+			
 			
 		]
 	},

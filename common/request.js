@@ -1,5 +1,5 @@
 // const baseUrl = 'https://unidemo.dcloud.net.cn' 
-const baseUrl = 'http://10.79.40.32:3000'   
+const baseUrl = 'http://localhost:3000'   
 const request = (url = '', data = {}, type = 'GET', header = {
 }) => {
     return new Promise((resolve, reject) => {

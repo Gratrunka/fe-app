@@ -4,11 +4,12 @@
 			<image src="../../static/bn1.jpg" mode=""></image>
 			<u-input v-model="count" type="type" :border="border" />
 			<u-input v-model="pwd" type="password" :border="border" />
+			<view class="btn" @click="login">
+			 	LOGIN
+			 </view>
+									
 			<navigator url="/pages/tabBar/home/home" open-type="switchTab" hover-class="other-navigator-hover">
-			                  <view class="btn" @click="login">
-			                   	LOGIN
-			                   </view>
-						
+			                  
 			 </navigator>
 			
 		</view>
@@ -28,15 +29,20 @@
 				},
 		methods:{
 			login(){
-				uni.navigateTo({
-					url:'../tabBar/home/home'
-				})
-				// this.$request('/users', {
-				// // 传参参数名：参数值,如果没有，就不需要传
-				// }).then(res => {
-				// // 打印调用成功回调
-				// console.log(res)
+				// uni.navigateTo({
+				// 	url:'../tabBar/home/home'
 				// })
+				this.$request('/users/login', {
+				// 传参参数名：参数值,如果没有，就不需要传
+				name:this.count,
+				password:this.pwd
+				},"POST").then(res => {
+				// 打印调用成功回调
+				console.log(res)
+				uni.switchTab({url:'/pages/tabBar/home/home'})
+				}).catch((err)=>{
+					console.log(err)
+				})
 
 			}
 		}
