@@ -2,21 +2,23 @@
 	<view class="content">
 		<view class="goodsContent">
 			<view class="goodsLeftList" >
-				<view class="goodsItem" v-for="item in goodsLeftList">
-					<image :src="item.image_url" @load="onImageLoad" mode="widthFix"></image>
-					<view class="goodsName">{{item.name}}</view>
-					<view class="goodsPrice">
-						<image  src="../../../static/bn1.jpg"  mode="widthFix"></image>
-						<text>{{item.priceNow}}</text>
-					</view>
+				<view class="goodsItem"   v-for="item in goodsLeftList">
+					<navigator :url="'../../page/gameDetail?appid='+item.gameid" hover-class="navigator-hover">
+						<image :src="item.image_url" @load="onImageLoad" mode="widthFix"></image>
+						<view class="goodsName">{{item.name}}</view>
+						<view class="goodsPrice">
+							<image  src="../../../static/price.png"  mode="widthFix"></image>
+							<text>{{item.priceNow}}</text>
+						</view>
+					</navigator>
 				</view>
 			</view>
 			<view class="goodsRightList">
 				<view class="goodsItem" v-for="item in goodsRightList">
 					<image :src="item.image_url" @load="onImageLoad" mode="widthFix"></image>
-					<view class="goodsName">{{item.name}}1212345678</view>
+					<view class="goodsName">{{item.name}}</view>
 					<view class="goodsPrice">
-						<image  src="../../../static/bn1.jpg"  mode="widthFix"></image>
+						<image  src="../../../static/price.png"  ></image>
 						<text>{{item.priceNow}}</text>
 					</view>
 				</view>
@@ -27,63 +29,110 @@
 </template>
 
 <script>
+	const SteamWebapi = require('steamworkers-webapi');
+	// import SteamWebapi from 'SteamWebapi'
 	export default {
 	    data () {
 	      return {
 	        goodsList:[
-	        		{
-	        			name:"高配版热水器",
-	        			priceNow : "1499.00",
-	        			image_url:"../../../static/bn1.jpg",
-	        		},
-	        		{
-	        			name:"速热高温煮水蛋",
-	        			priceNow : "499.00",
-	        			image_url:"../../../static/bn1.jpg",
-	        		},
-	        		{
-	        			name:"速热高温煮水蛋",
-	        			priceNow : "499.00",
-	        			image_url:"../../../static/bn1.jpg",
-	        		},
+	     //    		{
+						// gameid:1499190,
+	     //    			name:"Lost Caves",
+	     //    			priceNow : "1499.00",
+	     //    			image_url:"../../../static/bn1.jpg",
+	     //    		},
+	     //    		{
+						// gameid:1498290,
+	     //    			name:"青鳥樂園 Blue Bird Land",
+	     //    			priceNow : "499.00",
+	     //    			image_url:"../../../static/bn1.jpg",
+	     //    		},
+	     //    		{
+						// gameid:1495510,
+	     //    			name:"MeyRescuer",
+	     //    			priceNow : "499.00",
+	     //    			image_url:"../../../static/bn1.jpg",
+	     //    		},
 	        	],
 	            goodsListCount:3,  //加载第i张图片
 	        	// 左侧商品列表
 	        	goodsLeftList:[{
-	        			name:"高配版热水器",
-	        			priceNow : "1499.00",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:1499190,
+	        			name:"双人成行",
+	        			priceNow : "198.00",
+	        			image_url:"../../../static/img1.jpg",
+	        		},{
+						gameid:107410,
+	        			name:"Arma 3",
+	        			priceNow : "29.00",
+	        			image_url:"../../../static/img2.jpg",
 	        		},
 	        		{
-	        			name:"速热高温煮水蛋",
+						gameid:1498290,
+	        			name:"青鳥樂園 Blue Bird Land",
 	        			priceNow : "499.00",
 	        			image_url:"../../../static/bn1.jpg",
 	        		},
 	        		{
-	        			name:"速热高温煮水蛋",
-	        			priceNow : "499.00",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:108600,
+	        			name:"Project Zomboid",
+	        			priceNow : "48.00",
+	        			image_url:"../../../static/img3.jpg",
+	        		},{
+						gameid:108600,
+	        			name:"Project Zomboid",
+	        			priceNow : "48.00",
+	        			image_url:"../../../static/img3.jpg",
+	        		},{
+						gameid:108600,
+	        			name:"Project Zomboid",
+	        			priceNow : "48.00",
+	        			image_url:"../../../static/img3.jpg",
+	        		},{
+						gameid:108600,
+	        			name:"Project Zomboid",
+	        			priceNow : "48.00",
+	        			image_url:"../../../static/img3.jpg",
 	        		},],
 	        	goodsLeftListHeight : 0,
 	        	// 右侧商品列表
 	        	goodsRightList:[{
-	        			name:"高配版热水器",
-	        			priceNow : "1499.00",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:1468810,
+	        			name:"鬼谷八荒",
+	        			priceNow : "68.00",
+	        			image_url:"../../../static/img4.jpg",
 	        		},
 	        		{
-	        			name:"速热高温煮水蛋",
-	        			priceNow : "499.00",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:1282730,
+	        			name:"Loop Hero",
+	        			priceNow : "27.00",
+	        			image_url:"../../../static/img5.jpg",
 	        		},
 	        		{
-	        			name:"速热高温煮水蛋111111111111",
-	        			priceNow : "499.0000000000000000",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:1009290,
+	        			name:"刀剑神域 彼岸游境",
+	        			priceNow : "149.00",
+	        			image_url:"../../../static/img6.jpg",
 	        		},{
-	        			name:"速热高温煮水蛋",
-	        			priceNow : "499.00",
-	        			image_url:"../../../static/bn1.jpg",
+						gameid:1154810,
+	        			name:"Going_Under",
+	        			priceNow : "102.60",
+	        			image_url:"../../../static/img7.jpg",
+	        		},{
+						gameid:4000,
+	        			name:"Garry's Mod",
+	        			priceNow : "36.00",
+	        			image_url:"../../../static/img6.jpg",
+	        		},{
+						gameid:5596500,
+	        			name:"Witch It",
+	        			priceNow : "149.00",
+	        			image_url:"https://cdn.cloudflare.steamstatic.com/steam/apps/559650/header_schinese.jpg?t=1619954391",
+	        		},{
+						gameid:1009290,
+	        			name:"刀剑神域 彼岸游境",
+	        			priceNow : "149.00",
+	        			image_url:"../../../static/img6.jpg",
 	        		},],
 	        	goodsRightListHeight : 0,
 
@@ -91,6 +140,30 @@
 	    },
 		onLoad() {
 			console.log(23456)
+			const steam = new SteamWebapi('D9BBFE5089DBA9B6F17B54A65D92AC0E');
+			console.log(steam)
+			steam.resolve('https://steamcommunity.com/id/76561198146931523').then(id=>{
+				console.log(id)
+			})
+			// steam.getGameNews(1426210).then(res=>{
+			// 	console.log(res)
+			// })
+			steam.getGameDetails(1009290).then(res => {
+				console.log(res)
+			})
+			// this.$request('/users/login', {
+			// // 传参参数名：参数值,如果没有，就不需要传
+			// name:this.count,
+			// password:this.pwd
+			// },"POST").then(res => {
+			// // 打印调用成功回调
+			// console.log(res)
+			// uni.switchTab({url:'/pages/tabBar/home/home'})
+			// }).catch((err)=>{
+			// 	console.log(err)
+			// })
+			
+			
 		},
 		methods:{
 			// 图片绑定事件，通过比较左右列表高度，实现瀑布流展示
@@ -126,6 +199,12 @@
 			async waterfallImage() {
 				this.goodsLeftList.push(this.goodsList[0]);
 			 },
+			toDetail:function(){
+				console.log('detail')
+				uni.navigateTo({
+				    url: 'pages/page/detail'
+				});
+			}
 
 		}
 	  }
@@ -157,6 +236,7 @@
 		.goodsItem{
 			background: #FFFFFF;
 			width:325rpx;
+			padding-bottom: 10rpx;
 			margin-bottom: 15rpx;
 			border-radius: 10px;
 		}
@@ -177,9 +257,12 @@
 			-webkit-box-orient:vertical;
 		}
 		.goodsPrice{
+			display: flex;
+			// justify-content: center;
+			align-items: center;
 			color: #ffac29;
 			font-size: 24rpx;
-			padding: 0 15rpx;
+			padding: 0px 15rpx;
 		}
 		.goodsPrice image{
 			width: 20rpx;

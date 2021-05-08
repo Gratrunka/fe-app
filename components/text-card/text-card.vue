@@ -9,7 +9,7 @@
 				zhang lu xi
 			</view>
 			<view class="content">
-				we aar  frekm gvakrfgkr fer
+				这是我的博客内容xxxx
 			</view>
 		</view>
 	</view>
@@ -25,6 +25,11 @@
 			display: flex;
 			flex-direction: column;
 			.avatar{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+			}
+			.like{
 				width: 50px;
 				height: 50px;
 				border-radius: 50%;

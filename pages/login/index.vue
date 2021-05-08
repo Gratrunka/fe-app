@@ -1,9 +1,9 @@
 <template>
 	<view class="main-content">
 		<view class="login-box">
-			<image src="../../static/bn1.jpg" mode=""></image>
-			<u-input v-model="count" type="type" :border="border" />
-			<u-input v-model="pwd" type="password" :border="border" />
+			<image src="../../static/default_avatar.png" mode=""></image>
+			<u-input v-model="count" type="text" :border="border" placeholder="请输入账号"/>
+			<u-input v-model="pwd" type="password" :border="border" placeholder="请输入密码"/>
 			<view class="btn" @click="login">
 			 	LOGIN
 			 </view>
@@ -61,8 +61,8 @@
 			height: 100px;
 			border-radius: 50%;
 			background: #e6eef4;
-			box-shadow:  19px 19px 38px #cad1d7,
-			             -19px -19px 38px #ffffff;
+			box-shadow:  10px 10px 5px 20px #cad1d7,
+			             -10px -10px 5px 20px #ffffff;
 		}
 		.login-box{
 			display: flex;
@@ -74,8 +74,8 @@
 			width: 300px;
 			border-radius: 13px;
 			background: #e6eef4;
-			box-shadow:  11px 11px 22px #fff,
-			             -11px -11px 22px #ffffff;
+			// box-shadow:  14px 14px 27px #fff,
+			//              -14px -14px 27px #ffffff;
 		.u-input{
 			height: 50px;
 			flex:0;
@@ -86,7 +86,7 @@
 			width: 150px;
 			border-radius: 25px;
 			background: #e6eef4;
-			box-shadow:  14px 14px 27px #b8bec3,
+			box-shadow:  14px 14px 27px #ffffff,
 			             -14px -14px 27px #ffffff;
 			line-height: 80px;
 			color: #ccc;
