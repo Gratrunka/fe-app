@@ -3,7 +3,7 @@
 		<view class="goodsContent">
 			<view class="goodsLeftList" >
 				<view class="goodsItem"   v-for="item in goodsLeftList">
-					<navigator :url="'../../page/gameDetail?appid='+item.gameid" hover-class="navigator-hover">
+					<navigator :url="'../../page/detail?appid='+item.gameid" hover-class="navigator-hover">
 						<image :src="item.image_url" @load="onImageLoad" mode="widthFix"></image>
 						<view class="goodsName">{{item.name}}</view>
 						<view class="goodsPrice">
@@ -15,12 +15,14 @@
 			</view>
 			<view class="goodsRightList">
 				<view class="goodsItem" v-for="item in goodsRightList">
+					<navigator :url="'../../page/detail?appid='+item.gameid" hover-class="navigator-hover">
 					<image :src="item.image_url" @load="onImageLoad" mode="widthFix"></image>
 					<view class="goodsName">{{item.name}}</view>
 					<view class="goodsPrice">
 						<image  src="../../../static/price.png"  ></image>
 						<text>{{item.priceNow}}</text>
 					</view>
+					</navigator>
 				</view>
 			</view>
 		</view>
@@ -148,9 +150,9 @@
 			// steam.getGameNews(1426210).then(res=>{
 			// 	console.log(res)
 			// })
-			steam.getGameDetails(1009290).then(res => {
-				console.log(res)
-			})
+			// steam.getGameDetails(1009290).then(res => {
+			// 	console.log(res)
+			// })
 			// this.$request('/users/login', {
 			// // 传参参数名：参数值,如果没有，就不需要传
 			// name:this.count,

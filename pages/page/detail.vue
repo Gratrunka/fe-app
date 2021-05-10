@@ -1,20 +1,11 @@
 <template>
 	<view class="content">
-		<image src="../../static/bn1.jpg" mode="widthFix"></image>
+		<!-- 应该根据文章id去请求数据 -->
+		
 		<view class="article-detail">
-			<view class="header">
-				文章的标题
-			</view>
-			<view class="info">
-				
-			</view>
-			<view class="detail">
-				文章详情
-				dagt
-				jintian
-				<br>
-				todat
-				文章
+			
+			<view class="">
+				<rich-text :nodes="content"></rich-text>
 			</view>
 		</view>
 	</view>
@@ -22,22 +13,36 @@
 
 <script>
 	export default {
-		
+		data(){
+			return{
+				newsDetail:{
+					
+				},
+				content:''
+			}
+		},
+		onLoad(option){
+			console.log(option.appid)
+			// const item = option.appid;
+			// console.log(appid)
+			this.$steam.getGameDetails(option.appid?option.appid:1468810).then(res => {
+				console.log(res)
+				this.content = res.detailed_description
+			})
+		}
 	}
 </script>
 
 <style lang="scss">
 	.content{
-		image{
-			width: 100%;
-			height: 350px;
-		}
+		
+		box-sizing: border-box;
+		
 		.article-detail{
-			padding: 10px 20px;
-			.header{
-				font-size: 30px;
-				font-weight: bold;
-			}
+			
+			box-sizing: border-box;
+			
+
 		}
 	}
 </style>

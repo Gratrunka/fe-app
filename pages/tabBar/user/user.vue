@@ -1,8 +1,6 @@
 <template>
 	<view class="user-box">
-		<view class="bg">
-			<image src="../../../static/bn1.jpg" mode=""></image>
-		</view>
+		
 		<view class="user-container">
 			<image class="avatar" src="../../../static/bn1.jpg" mode=""></image>
 			<view class="nickname">昵称</view>
@@ -34,41 +32,53 @@
 </template>
 
 <script>
+	export default{
+		data(){
+			return{
+				
+			}
+		},
+		onLoad() {
+			// this.$steam.getUserOwnedGames('76561198205559728').then(res => {
+			// 	console.log(res)
+			// })
+		}
+	}
 </script>
 
 <style lang="scss">
 	.user-box{
-		position: relative;
+		padding-top: 150rpx;
 		height: 100%;
 		background-color: #dbebfa;
 		
 	}
-	.bg{
-		// position: absolute;
-		// top: -200rpx;
-		height: 600rpx;
-		width: 100%;
-		image{
-			height: 100%;
-			width: 100%;
+// 	.bg{
+// 		// position: absolute;
+// 		// top: -200rpx;
+// 		height: 600rpx;
+// 		width: 100%;
+// 		image{
+// 			height: 100%;
+// 			width: 100%;
 			
-		}
+// 		}
 		
-&:after{
-			position: absolute; 
-			content: ''; 
-			width: 100%; 
-			height: 100%; 
-			top: 0; 
-			left: 0; 
-			box-shadow:0 0 50px 30px #ffffff ; 
-			}
+// &:after{
+// 			position: absolute; 
+// 			content: ''; 
+// 			width: 100%; 
+// 			height: 100%; 
+// 			top: 0; 
+// 			left: 0; 
+// 			box-shadow:0 0 50px 30px #ffffff ; 
+// 			}
 		
-	}
+// 	}
 	.user-container{
-		position: relative;
 		
-		margin-top: -150rpx;
+		
+		// margin-top: -150rpx;
 		padding: 20rpx 10%;
 		// height: 100%;
 		// height: 1000rpx;
